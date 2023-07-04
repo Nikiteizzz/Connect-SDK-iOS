@@ -88,14 +88,14 @@ Pod::Spec.new do |s|
     "core/Frameworks/asi-http-request/Classes/*.{h,m}"
 
   s.subspec 'Core' do |sp|
-    sp.source_files  = "ConnectSDKDefaultPlatforms.h", "https://github.com/Nikiteizzz/Connect-SDK-iOS-Core/**/*.{h,m}"
-    sp.exclude_files = (non_arc_files.dup << "https://github.com/Nikiteizzz/Connect-SDK-iOS-Core/ConnectSDK*Tests/**/*" << "https://github.com/Nikiteizzz/Connect-SDK-iOS-Core/Frameworks/LGCast/**/*.h")
-    sp.private_header_files = "https://github.com/Nikiteizzz/Connect-SDK-iOS-Core/**/*_Private.h"
+    sp.source_files  = "ConnectSDKDefaultPlatforms.h", "core/**/*.{h,m}"
+    sp.exclude_files = (non_arc_files.dup << "core/ConnectSDK*Tests/**/*" << "core/Frameworks/LGCast/**/*.h")
+    sp.private_header_files = "core/**/*_Private.h"
     sp.requires_arc = true
 
     sp.dependency 'ConnectSDK/no-arc'
-    sp.ios.vendored_frameworks = 'https://github.com/Nikiteizzz/Connect-SDK-iOS-Core/Frameworks/LGCast/LGCast.xcframework', 'https://github.com/Nikiteizzz/Connect-SDK-iOS-Core/Frameworks/LGCast/GStreamerForLGCast.xcframework'
-    sp.preserve_paths =  'https://github.com/Nikiteizzz/Connect-SDK-iOS-Core/Frameworks/LGCast/LGCast.xcframework', 'https://github.com/Nikiteizzz/Connect-SDK-iOS-Core/Frameworks/LGCast/GStreamerForLGCast.xcframework'
+    sp.ios.vendored_frameworks = 'core/Frameworks/LGCast/LGCast.xcframework', 'core/Frameworks/LGCast/GStreamerForLGCast.xcframework'
+    sp.preserve_paths =  'core/Frameworks/LGCast/LGCast.xcframework', 'core/Frameworks/LGCast/GStreamerForLGCast.xcframework'
   end
 
   s.subspec 'no-arc' do |sp|
